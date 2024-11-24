@@ -2,10 +2,14 @@ package com.muye.hook.hiddenapi
 
 import android.content.Context
 import com.bytedance.shadowhook.ShadowHook
+import com.bytedance.shadowhook.ShadowHook.ConfigBuilder
 
 object BypassHiddenApi {
     init {
-        ShadowHook.init()
+        ShadowHook.init(ConfigBuilder().run {
+            setMode(ShadowHook.Mode.SHARED)
+            build()
+        })
         System.loadLibrary("hiddenapi")
     }
 
