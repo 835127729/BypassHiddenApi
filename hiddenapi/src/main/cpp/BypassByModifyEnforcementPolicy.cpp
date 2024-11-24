@@ -373,7 +373,7 @@ enum class RuntimeDebugState {
     kJavaDebuggableAtInit
 };
 
-struct PartialRuntimeU {
+struct PartialRuntimeT {
     // Specifies target SDK version to allow workarounds for certain API levels.
     uint32_t target_sdk_version_;
 
@@ -525,8 +525,8 @@ Java_com_muye_hook_hiddenapi_BypassByModifyEnforcementPolicy_bypassNative(JNIEnv
         return false;
     }
 
-    if (api_version >= __ANDROID_API_U__) {
-        auto *partialRuntime = reinterpret_cast<PartialRuntimeU *>(
+    if (api_version >= __ANDROID_API_T__) {
+        auto *partialRuntime = reinterpret_cast<PartialRuntimeT *>(
                 reinterpret_cast<uintptr_t>(runtime) + targetSdkVersionOffset);
         SetHiddenApiEnforcementPolicy(partialRuntime);
     } else if (api_version >= __ANDROID_API_S__) {
