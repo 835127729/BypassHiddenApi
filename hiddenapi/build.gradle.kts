@@ -54,9 +54,8 @@ android {
         prefab = true
     }
     prefab {
-        create("hiddenapi") {
-            headers = "src/main/cpp/"
-        }
+        create("hiddenapi")
+        create("bypass_by_jni_on_load")
     }
     packagingOptions {
         excludes += listOf("**/libshadowhook.so", "**/libshadowhook_nothing.so")
